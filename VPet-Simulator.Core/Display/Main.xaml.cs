@@ -438,6 +438,7 @@ namespace VPet_Simulator.Core
             });
         }
 
+        public bool disablePetPickupAnim = false;
         private void MainGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             isPress = false;
@@ -473,7 +474,15 @@ namespace VPet_Simulator.Core
                 MainGrid.MouseMove -= MainGrid_MouseMove;
                 MainGrid.MouseMove += MainGrid_MouseWave;
                 rasetype = -1;
-                DisplayRaising();
+
+                if (!disablePetPickupAnim)
+                {
+                    DisplayRaising();
+                } else
+                {
+                    // Don't Display Pickup Anim
+                }
+
                 return;
             }
             var mp = e.GetPosition(MainGrid);

@@ -629,6 +629,12 @@ namespace VPet_Simulator.Core
                 MoveTimerSmartMove = false;
             }
         }
+
+        public void SetDisablePetPickupAnim(bool disablePickupAnim)
+        {
+            disablePetPickupAnim = disablePickupAnim;
+        }
+
         /// <summary>
         /// 当前状态
         /// </summary>

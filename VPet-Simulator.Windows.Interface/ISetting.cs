@@ -95,6 +95,10 @@ namespace VPet_Simulator.Windows.Interface
         /// <param name="interval">计算间隔</param>
         void SetLogicInterval(double interval);
 
+        bool DisablePetPickupAnim { get; }
+
+        void SetDisablePetPickupAnim(bool setPickupAnim);
+
         /// <summary>
         /// 获取当前是否允许移动
         /// </summary>
