@@ -359,7 +359,13 @@ namespace VPet_Simulator.Core
                 y = 0;
             Core.Controller.MoveWindows(x, y);
             rasetype = 0;
-            DisplayRaising();
+
+            if (!disablePetPickupAnim)
+            {
+                DisplayRaising();
+            } else { 
+                // Don't Display Pickup Anim
+            }
         }
         int rasetype = int.MinValue;
         /// <summary>

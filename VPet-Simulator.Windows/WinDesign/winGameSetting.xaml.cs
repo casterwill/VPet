@@ -73,6 +73,8 @@ namespace VPet_Simulator.Windows
             SwitchHideFromTaskControl.IsChecked = mw.Set.HideFromTaskControl;
             ConsoleBox.IsChecked = mw.Set.DeBug;
 
+            DisablePetPickupAnimEvent.IsChecked = mw.Set.DisablePetPickupAnim;
+
             StartUpBox.IsChecked = mw.Set.StartUPBoot;
             StartUpSteamBox.IsChecked = mw.Set.StartUPBootSteam;
             TextBoxPetName.Text = mw.Core.Save.Name;
@@ -267,6 +269,8 @@ namespace VPet_Simulator.Windows
             ListMenuItems.Add(listmenuswith("操作设置", 2, PressLengthSlider));
             ListMenuItems.Add(listmenuswith("桌宠名字", 2, TextBoxPetName));
             ListMenuItems.Add(listmenuswith("音乐识别设置", 2, VoiceMaxSilder));
+
+            ListMenuItems.Add(listmenuswith("DisablePetPickupAnim", 2, DisablePetPickupAnimEvent));
 
             ListMenuItems.Add(listmenuswith("自定义链接", 3, btn_DIY));
 
@@ -943,6 +947,14 @@ namespace VPet_Simulator.Windows
             if (!AllowChange)
                 return;
             mw.Set.SetAllowMove(MoveEventBox.IsChecked == true);
+        }
+
+        private void DisablePetPickupAnimEvent_Checked(object sender, RoutedEventArgs e)
+        {
+            if (!AllowChange)
+                return;
+
+            mw.Set.SetDisablePetPickupAnim(DisablePetPickupAnimEvent.IsChecked == true);
         }
 
         private void SmartMoveEventBox_Checked(object sender, RoutedEventArgs e)

@@ -39,6 +39,8 @@ namespace VPet_Simulator.Windows
             autobuy = this["gameconfig"].GetBool("autobuy");
             autogift = this["gameconfig"].GetBool("autogift");
             autochangewindow = !this["gameconfig"].GetBool("autochangewindow");
+            disablePetPickupAnim = !this["gameconfig"].GetBool("disablepetpickupanim");
+
             this.mw = mw;
         }
 
@@ -313,6 +315,18 @@ namespace VPet_Simulator.Windows
                 this["gameconfig"].SetBool("autochangewindow", value);
             }
         }
+
+        private bool disablePetPickupAnim;
+        public bool DisablePetPickupAnim
+        {
+            get => disablePetPickupAnim;
+            set
+            {
+                disablePetPickupAnim = value;
+                this["gameconfig"].SetBool("disablepetpickupanim", !value);
+            }
+        }
+
         /// <summary>
         /// 智能移动周期 (秒)
         /// </summary>
@@ -623,6 +637,12 @@ namespace VPet_Simulator.Windows
                     mw.Main.State = Main.WorkingState.Nomal;
                 }
             }
+        }
+
+        public void SetDisablePetPickupAnim(bool disablePickupAnim)
+        {
+            DisablePetPickupAnim = disablePickupAnim;
+            mw.Main.SetDisablePetPickupAnim(disablePickupAnim);
         }
 
         public void SetSmartMoveInterval(int interval)
