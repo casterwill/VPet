@@ -641,7 +641,7 @@ namespace VPet_Simulator.Windows
 
         public void SetDisablePetPickupAnim(bool disablePickupAnim)
         {
-            disablePetPickupAnim = disablePickupAnim;
+            DisablePetPickupAnim = disablePickupAnim;
             mw.Main.SetDisablePetPickupAnim(disablePickupAnim);
         }
 
